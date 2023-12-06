@@ -2,31 +2,45 @@
 const response = await fetch('pieces-autos.json');
 const pieces = await response.json();
 
-// create elements (tags)
-const article = pieces[0];
-const imageElement = document.createElement('img');
-imageElement.src = article.image;
-const nameElement = document.createElement('h2');
-nameElement.innerText = article.name;
-const priceElement = document.createElement('p');
-priceElement.innerText = `Prix: ${article.price} € (${
-  article.price < 35 ? '€' : '€€€'
-})`; // Choose between two possibilities using the ternary operator
-const categoryElement = document.createElement('p');
-categoryElement.innerText = article.category ?? '(aucune catégorie)'; // Provide a default value using the nullish coalescing operator
+for (let i = 0; i < pieces.length; i++) {
+  // Retrieve the DOM element that will host the cards
+  const sectionSheets = document.querySelector('.sheets');
 
-const descriptionElement = document.createElement('p');
-descriptionElement.innerText =
-  article.description ?? 'Pas de description pour le moment.'; // Add a paragraph element for the description with a default text in case of absence of description
+  // Create a tag dedicated to an automotive piece
+  const pieceElement = document.createElement('article');
 
-const stockElement = document.createElement('p');
-stockElement.innerText = article.availability ? 'En stock' : 'Rupture de stock'; // added a paragraph element for the availability property with a default text if the item is available or no longer available
+  // Create the img element
+  const imageElement = document.createElement('img');
+  // Access index i of the pieces list to configure the image source
+  imageElement.src = pieces[i].image;
 
-// attache the elements (tags) to the rest of the document
-const sectionSheets = document.querySelector('.sheets');
-sectionSheets.appendChild(imageElement);
-sectionSheets.appendChild(nameElement);
-sectionSheets.appendChild(priceElement);
-sectionSheets.appendChild(categoryElement);
-sectionSheets.appendChild(descriptionElement);
-sectionSheets.appendChild(stockElement);
+  const nameElement = document.createElement('h2');
+  nameElement.innerText = pieces[i].name;
+
+  const priceElement = document.createElement('p');
+  priceElement.innerText = `Prix: ${pieces[i].price} € (${
+    pieces[i].price < 35 ? '€' : '€€€'
+  })`;
+
+  const categoryElement = document.createElement('p');
+  categoryElement.innerText = pieces[i].category ?? '(aucune catégorie)';
+
+  const descriptionElement = document.createElement('p');
+  descriptionElement.innerText =
+    pieces[i].description ?? 'Pas de description pour le moment.';
+
+  const stockElement = document.createElement('p');
+  stockElement.innerText = pieces[i].availability
+    ? 'En stock'
+    : 'Rupture de stock';
+
+  // Attach the article tag to the Sheets section
+  sectionSheets.appendChild(pieceElement);
+  // Attach the image to pieceElement (the article tag)
+  sectionSheets.appendChild(imageElement);
+  sectionSheets.appendChild(nameElement);
+  sectionSheets.appendChild(priceElement);
+  sectionSheets.appendChild(categoryElement);
+  sectionSheets.appendChild(descriptionElement);
+  sectionSheets.appendChild(stockElement);
+}
