@@ -9,7 +9,9 @@ imageElement.src = article.image;
 const nameElement = document.createElement('h2');
 nameElement.innerText = article.name;
 const priceElement = document.createElement('p');
-priceElement.innerText = `Prix: ${article.price} €`;
+priceElement.innerText = `Prix: ${article.price} € (${
+  article.price < 35 ? '€' : '€€€'
+})`; // Choose between two possibilities using the ternary operator
 const categoryElement = document.createElement('p');
 categoryElement.innerText = article.category;
 
