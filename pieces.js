@@ -60,7 +60,9 @@ sortButton.addEventListener('click', function () {
   orderedPieces.sort(function (a, b) {
     return a.price - b.price;
   });
-  console.log(orderedPieces);
+  // Clearing the screen and regenerating the page
+  document.querySelector('.sheets').innerHTML = '';
+  generatePieces(orderedPieces);
 });
 
 // filter button management
