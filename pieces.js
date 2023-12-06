@@ -75,3 +75,24 @@ filterButton.addEventListener('click', function () {
   });
   console.log(filteredPieces);
 });
+
+// descending button management
+const descendingButton = document.querySelector('.btn-descending');
+
+descendingButton.addEventListener('click', function () {
+  const orderedPieces = Array.from(pieces);
+  orderedPieces.sort(function (a, b) {
+    return b.price - a.price;
+  });
+  console.log(orderedPieces);
+});
+
+// no description button management
+const noDescriptionButton = document.querySelector('.btn-no-desc');
+
+noDescriptionButton.addEventListener('click', function () {
+  const filteredPieces = pieces.filter(function (piece) {
+    return piece.description;
+  });
+  console.log(filteredPieces);
+});
