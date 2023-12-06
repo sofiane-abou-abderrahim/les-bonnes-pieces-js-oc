@@ -121,3 +121,7 @@ for (let i = 0; i < articleNames.length; i++) {
 
 // add the header and then the list to the filter results block
 document.querySelector('.affordables').appendChild(affordablesElements);
+
+// created two lists from pieces list
+const availableArticlesNames = pieces.map(piece => piece.name);
+const availableArticlesPrices = pieces.map(piece => piece.price);
