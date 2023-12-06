@@ -124,4 +124,16 @@ document.querySelector('.affordables').appendChild(affordablesElements);
 
 // created two lists from pieces list
 const availableArticlesNames = pieces.map(piece => piece.name);
+// console.log(availableArticlesNames);
 const availableArticlesPrices = pieces.map(piece => piece.price);
+// console.log(availableArticlesPrices);
+
+// delete non available articles from the two lists above
+for (let i = pieces.length - 1; i >= 0; i--) {
+  if (!pieces[i].availability) {
+    availableArticlesNames.splice(i, 1);
+    availableArticlesPrices.splice(i, 1);
+  }
+}
+// console.log(availableArticlesNames);
+// console.log(availableArticlesPrices);
