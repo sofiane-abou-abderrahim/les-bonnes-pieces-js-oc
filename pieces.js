@@ -72,7 +72,9 @@ filterButton.addEventListener('click', function () {
   const filteredPieces = pieces.filter(function (piece) {
     return piece.price <= 35;
   });
-  console.log(filteredPieces);
+  // Clearing the screen and regenerating the page with only the filtered pieces
+  document.querySelector('.sheets').innerHTML = '';
+  generatePieces(filteredPieces);
 });
 
 // descending button management
