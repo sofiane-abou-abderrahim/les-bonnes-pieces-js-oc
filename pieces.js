@@ -167,3 +167,6 @@ document
   .querySelector('.availables')
   .appendChild(pAvailableElement)
   .appendChild(availablesElements);
+
+// retrieve input tag reference
+const maxPriceInput = document.querySelector('#max-price');
