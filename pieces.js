@@ -3,6 +3,8 @@ const response = await fetch('pieces-autos.json');
 const pieces = await response.json();
 
 for (let i = 0; i < pieces.length; i++) {
+  const article = pieces[i];
+
   // Retrieve the DOM element that will host the cards
   const sectionSheets = document.querySelector('.sheets');
 
@@ -12,35 +14,40 @@ for (let i = 0; i < pieces.length; i++) {
   // Create the img element
   const imageElement = document.createElement('img');
   // Access index i of the pieces list to configure the image source
-  imageElement.src = pieces[i].image;
+  imageElement.src = article.image;
 
   const nameElement = document.createElement('h2');
-  nameElement.innerText = pieces[i].name;
+  nameElement.innerText = article.name;
 
   const priceElement = document.createElement('p');
-  priceElement.innerText = `Prix: ${pieces[i].price} € (${
-    pieces[i].price < 35 ? '€' : '€€€'
+  priceElement.innerText = `Prix: ${article.price} € (${
+    article.price < 35 ? '€' : '€€€'
   })`;
 
   const categoryElement = document.createElement('p');
-  categoryElement.innerText = pieces[i].category ?? '(aucune catégorie)';
+  categoryElement.innerText = article.category ?? '(aucune catégorie)';
 
   const descriptionElement = document.createElement('p');
   descriptionElement.innerText =
-    pieces[i].description ?? 'Pas de description pour le moment.';
+    article.description ?? 'Pas de description pour le moment.';
 
   const stockElement = document.createElement('p');
-  stockElement.innerText = pieces[i].availability
+  stockElement.innerText = article.availability
     ? 'En stock'
     : 'Rupture de stock';
 
   // Attach the article tag to the Sheets section
   sectionSheets.appendChild(pieceElement);
   // Attach the image to pieceElement (the article tag)
-  sectionSheets.appendChild(imageElement);
-  sectionSheets.appendChild(nameElement);
-  sectionSheets.appendChild(priceElement);
-  sectionSheets.appendChild(categoryElement);
-  sectionSheets.appendChild(descriptionElement);
-  sectionSheets.appendChild(stockElement);
+  pieceElement.appendChild(imageElement);
+  pieceElement.appendChild(nameElement);
+  pieceElement.appendChild(priceElement);
+  pieceElement.appendChild(categoryElement);
+  pieceElement.appendChild(descriptionElement);
+  pieceElement.appendChild(stockElement);
 }
+
+const boutonTrier = document.querySelector('.btn-trier');
+boutonTrier.addEventListener('click', function () {
+  // ...
+});
