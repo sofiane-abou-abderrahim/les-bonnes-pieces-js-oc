@@ -1,5 +1,7 @@
 // Retrieve parts from the JSON file
-const pieces = await fetch('pieces-autos.json').then(pieces => pieces.json());
+// const pieces = await fetch('pieces-autos.json').then(pieces => pieces.json());
+const response = await fetch('pieces-autos.json');
+const pieces = await response.json();
 
 // Function that generates the entire web page
 function generatePieces(pieces) {
