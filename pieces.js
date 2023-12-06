@@ -47,7 +47,19 @@ for (let i = 0; i < pieces.length; i++) {
   pieceElement.appendChild(stockElement);
 }
 
+// const sortButton = document.querySelector('.btn-sort');
+// sortButton.addEventListener('click', function () {
+//   pieces.sort(function (a, b) {
+//     return a.price - b.price;
+//   });
+//   console.log(pieces);
+// });
+
 const sortButton = document.querySelector('.btn-sort');
 sortButton.addEventListener('click', function () {
-  // ...
+  const orderedPieces = Array.from(pieces);
+  orderedPieces.sort(function (a, b) {
+    return a.price - b.price;
+  });
+  console.log(orderedPieces);
 });
