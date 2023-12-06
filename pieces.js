@@ -161,4 +161,9 @@ for (let i = 0; i < availableArticlesNames.length; i++) {
   availablesElements.appendChild(availableArticleNamesElement);
 }
 
-document.querySelector('.availables').appendChild(availablesElements);
+const pAvailableElement = document.createElement('p');
+pAvailableElement.innerText = 'Pièces disponibles:';
+document
+  .querySelector('.availables')
+  .appendChild(pAvailableElement)
+  .appendChild(availablesElements);
