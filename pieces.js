@@ -96,3 +96,7 @@ noDescriptionButton.addEventListener('click', function () {
   });
   console.log(filteredPieces);
 });
+
+// map the articles list
+const articleNames = pieces.map(piece => piece.name);
+// console.log(articleNames);
