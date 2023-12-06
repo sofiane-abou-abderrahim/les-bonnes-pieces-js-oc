@@ -55,11 +55,23 @@ for (let i = 0; i < pieces.length; i++) {
 //   console.log(pieces);
 // });
 
+// sort button management
 const sortButton = document.querySelector('.btn-sort');
+
 sortButton.addEventListener('click', function () {
   const orderedPieces = Array.from(pieces);
   orderedPieces.sort(function (a, b) {
     return a.price - b.price;
   });
   console.log(orderedPieces);
+});
+
+// filter button management
+const filterButton = document.querySelector('.btn-filter');
+
+filterButton.addEventListener('click', function () {
+  const filteredPieces = pieces.filter(function (piece) {
+    return piece.price <= 35;
+  });
+  console.log(filteredPieces);
 });
