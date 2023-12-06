@@ -137,3 +137,15 @@ for (let i = pieces.length - 1; i >= 0; i--) {
 }
 // console.log(availableArticlesNames);
 // console.log(availableArticlesPrices);
+
+// create availables list
+const availablesElements = document.createElement('ul');
+
+// add each name and price to the availables list
+for (let i = 0; i < availableArticlesNames.length; i++) {
+  const availableArticleNamesElement = document.createElement('li');
+  availableArticleNamesElement.innerHTML = `${availableArticlesNames[i]} - ${availableArticlesPrices[i]} €`;
+  availablesElements.appendChild(availableArticleNamesElement);
+}
+
+document.querySelector('.availables').appendChild(availablesElements);
