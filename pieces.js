@@ -116,6 +116,9 @@ for (let i = pieces.length - 1; i >= 0; i--) {
 }
 // console.log(articleNames);
 
+const pElement = document.createElement('p');
+pElement.innerText = 'Pièces abordables';
+
 // create affordables list
 const affordablesElements = document.createElement('ul');
 
