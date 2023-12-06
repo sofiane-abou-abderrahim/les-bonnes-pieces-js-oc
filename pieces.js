@@ -1,6 +1,5 @@
 // Retrieve parts from the JSON file
-const response = await fetch('pieces-autos.json');
-const pieces = await response.json();
+const pieces = await fetch('pieces-autos.json').then(pieces => pieces.json());
 
 for (let i = 0; i < pieces.length; i++) {
   const article = pieces[i];
