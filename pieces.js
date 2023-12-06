@@ -87,7 +87,9 @@ descendingButton.addEventListener('click', function () {
   orderedPieces.sort(function (a, b) {
     return b.price - a.price;
   });
-  console.log(orderedPieces);
+  // Clearing the screen and regenerating the page
+  document.querySelector('.sheets').innerHTML = '';
+  generatePieces(orderedPieces);
 });
 
 // no description button management
@@ -97,7 +99,9 @@ noDescriptionButton.addEventListener('click', function () {
   const filteredPieces = pieces.filter(function (piece) {
     return piece.description;
   });
-  console.log(filteredPieces);
+  // Clearing the screen and regenerating the page with only the filtered pieces
+  document.querySelector('.sheets').innerHTML = '';
+  generatePieces(filteredPieces);
 });
 
 // map the articles list
