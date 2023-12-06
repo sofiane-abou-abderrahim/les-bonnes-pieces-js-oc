@@ -49,6 +49,9 @@ function generatePieces(pieces) {
   }
 }
 
+// Initial display of the page
+generatePieces(pieces);
+
 // sort button management
 const sortButton = document.querySelector('.btn-sort');
 
