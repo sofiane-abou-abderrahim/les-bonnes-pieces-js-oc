@@ -100,3 +100,11 @@ noDescriptionButton.addEventListener('click', function () {
 // map the articles list
 const articleNames = pieces.map(piece => piece.name);
 // console.log(articleNames);
+
+// delete non affordable articles
+for (let i = pieces.length - 1; i >= 0; i--) {
+  if (pieces[i].price > 35) {
+    articleNames.splice(i, 1);
+  }
+}
+// console.log(articleNames);
