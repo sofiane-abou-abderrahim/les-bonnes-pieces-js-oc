@@ -13,7 +13,7 @@ priceElement.innerText = `Prix: ${article.price} € (${
   article.price < 35 ? '€' : '€€€'
 })`; // Choose between two possibilities using the ternary operator
 const categoryElement = document.createElement('p');
-categoryElement.innerText = article.category;
+categoryElement.innerText = article.category ?? '(aucune catégorie)'; // Provide a default value using the nullish coalescing operator
 
 // attache the element to the rest of the document
 const sectionSheets = document.querySelector('.sheets');
