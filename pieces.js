@@ -108,3 +108,16 @@ for (let i = pieces.length - 1; i >= 0; i--) {
   }
 }
 // console.log(articleNames);
+
+// create affordables list
+const affordablesElements = document.createElement('ul');
+
+// add each name to the affordables list
+for (let i = 0; i < articleNames.length; i++) {
+  const articleNamesElement = document.createElement('li');
+  articleNamesElement.innerHTML = articleNames[i];
+  affordablesElements.appendChild(articleNamesElement);
+}
+
+// add the header and then the list to the filter results block
+document.querySelector('.affordables').appendChild(affordablesElements);
