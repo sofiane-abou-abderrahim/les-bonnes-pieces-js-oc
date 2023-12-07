@@ -4,6 +4,7 @@ export function reviewsAddListener() {
     piecesElements[i].addEventListener('click', function (event) {
       const id = event.target.dataset.id;
       fetch(`http://localhost:8081/pieces/${id}/avis`);
+      console.log('Le script continue sans attendre la réponse');
     });
   }
 }
