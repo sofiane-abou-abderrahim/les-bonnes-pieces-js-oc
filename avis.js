@@ -1,10 +1,10 @@
 export function reviewsAddListener() {
   const piecesElements = document.querySelectorAll('.sheets article button');
   for (let i = 0; i < piecesElements.length; i++) {
-    piecesElements[i].addEventListener('click', function (event) {
+    piecesElements[i].addEventListener('click', async function (event) {
       const id = event.target.dataset.id;
-      fetch(`http://localhost:8081/pieces/${id}/avis`);
-      console.log('Le script continue sans attendre la réponse');
+      await fetch(`http://localhost:8081/pieces/${id}/avis`);
+      console.log('Le script continuera après avoir reçu la réponse');
     });
   }
 }
