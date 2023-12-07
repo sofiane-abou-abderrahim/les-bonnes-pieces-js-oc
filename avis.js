@@ -33,3 +33,6 @@ const reviews = {
   user: event.target.querySelector('[name=user').value,
   comment: event.target.querySelector('[name=comment]').value
 };
+
+// Create the payload in JSON format
+const payload = JSON.stringify(reviews);
