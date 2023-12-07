@@ -175,4 +175,7 @@ maxPriceInput.addEventListener('input', function () {
   const filteredPieces = pieces.filter(function (piece) {
     return piece.price <= maxPriceInput.value;
   });
+  // Clearing the screen and regenerating the page with only the filtered pieces
+  document.querySelector('.sheets').innerHTML = '';
+  generatePieces(filteredPieces);
 });
