@@ -4,6 +4,9 @@ import { reviewsAddListener, sendReviewsAddListener } from './avis.js';
 const response = await fetch('http://localhost:8081/pieces');
 const pieces = await response.json();
 
+// Call the function to add the listener to the form
+sendReviewsAddListener();
+
 // Function that generates the entire web page
 function generatePieces(pieces) {
   for (let i = 0; i < pieces.length; i++) {
@@ -59,7 +62,6 @@ function generatePieces(pieces) {
   }
   // Call reviewsAddListener function
   reviewsAddListener();
-  sendReviewsAddListener();
 }
 
 // Initial display of the page

@@ -24,15 +24,22 @@ export function sendReviewsAddListener() {
   reviewsForm.addEventListener('submit', function (event) {
     // Disable the default browser behavior
     event.preventDefault();
+
+    // Create the object for the new reviews
+    const reviews = {
+      pieceId: parseInt(event.target.querySelector('[name=piece-id]').value),
+      user: event.target.querySelector('[name=user').value,
+      comment: event.target.querySelector('[name=comment]').value
+    };
+
+    // Create the payload in JSON format
+    const payload = JSON.stringify(reviews);
+
+    // Call the fetch function with all the necessary information
+    fetch('http://localhost:8081/avis', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: payload
+    });
   });
 }
-
-// Create the object for the new reviews
-const reviews = {
-  pieceId: parseInt(event.target.querySelector('[name=piece-id]').value),
-  user: event.target.querySelector('[name=user').value,
-  comment: event.target.querySelector('[name=comment]').value
-};
-
-// Create the payload in JSON format
-const payload = JSON.stringify(reviews);
