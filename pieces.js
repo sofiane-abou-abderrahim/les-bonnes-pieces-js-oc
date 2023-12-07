@@ -1,3 +1,5 @@
+import { reviewsAddListener } from './avis.js';
+
 // Retrieve parts from the JSON file
 // const pieces = await fetch('pieces-autos.json').then(pieces => pieces.json());
 const response = await fetch('pieces-autos.json');
