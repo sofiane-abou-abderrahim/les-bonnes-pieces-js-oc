@@ -1,4 +1,4 @@
-import { reviewsAddListener } from './avis.js';
+import { reviewsAddListener, sendReviewsAddListener } from './avis.js';
 
 // Retrieve pieces from HTTP API
 const response = await fetch('http://localhost:8081/pieces');
@@ -59,6 +59,7 @@ function generatePieces(pieces) {
   }
   // Call reviewsAddListener function
   reviewsAddListener();
+  sendReviewsAddListener();
 }
 
 // Initial display of the page
