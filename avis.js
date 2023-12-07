@@ -8,15 +8,23 @@ export function reviewsAddListener() {
       // Deserialize JSON response
       const reviews = await response.json();
 
-      const pieceElement = event.target.parentElement;
+      window.localStorage.setItem(
+        `piece-reviews-${id}`,
+        JSON.stringify(reviews)
+      );
 
-      const reviewsElement = document.createElement('p');
-      for (let i = 0; i < reviews.length; i++) {
-        reviewsElement.innerHTML += `${reviews[i].user}: ${reviews[i].comment} <br>`;
-      }
-      pieceElement.appendChild(reviewsElement);
+      const pieceElement = event.target.parentElement;
+      displayReviews(pieceElement, reviews);
     });
   }
+}
+
+export function displayReviews(pieceElement, reviews) {
+  const reviewsElement = document.createElement('p');
+  for (let i = 0; i < reviews.length; i++) {
+    reviewsElement.innerHTML += `${reviews[i].user}: ${reviews[i].comment} <br>`;
+  }
+  pieceElement.appendChild(reviewsElement);
 }
 
 export function sendReviewsAddListener() {

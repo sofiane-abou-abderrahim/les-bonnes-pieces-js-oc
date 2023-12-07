@@ -1,4 +1,8 @@
-import { reviewsAddListener, sendReviewsAddListener } from './avis.js';
+import {
+  reviewsAddListener,
+  sendReviewsAddListener,
+  displayReviews
+} from './avis.js';
 
 // Retrieve pieces potentially stored in localStorage
 let pieces = window.localStorage.getItem('pieces');
@@ -76,6 +80,17 @@ function generatePieces(pieces) {
 
 // Initial display of the page
 generatePieces(pieces);
+
+for (let i = 0; i < pieces.length; i++) {
+  const id = pieces[i].id;
+  const reviewsJSON = window.localStorage.getItem(`piece-reviews-${id}`);
+  const reviews = JSON.parse(reviewsJSON);
+
+  if (reviews !== null) {
+    const pieceElement = document.querySelector(`article[data-id="${id}"]`);
+    displayReviews(pieceElement, reviews);
+  }
+}
 
 // sort button management
 const sortButton = document.querySelector('.btn-sort');
@@ -201,4 +216,10 @@ maxPriceInput.addEventListener('input', function () {
   // Clearing the screen and regenerating the page with only the filtered pieces
   document.querySelector('.sheets').innerHTML = '';
   generatePieces(filteredPieces);
+});
+
+// Adding the listener to update localStorage data
+const updateButton = document.querySelector('.btn-update');
+updateButton.addEventListener('click', function () {
+  window.localStorage.removeItem('pieces');
 });
