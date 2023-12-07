@@ -54,6 +54,8 @@ function generatePieces(pieces) {
     pieceElement.appendChild(descriptionElement);
     pieceElement.appendChild(stockElement);
   }
+  // Call reviewsAddListener function
+  reviewsAddListener();
 }
 
 // Initial display of the page
