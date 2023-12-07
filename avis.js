@@ -5,7 +5,8 @@ export function reviewsAddListener() {
       const id = event.target.dataset.id;
       // Store the server response in a constant
       const response = await fetch(`http://localhost:8081/pieces/${id}/avis`);
-      console.log('Le script continuera après avoir reçu la réponse');
+      // Deserialize JSON response
+      const reviews = await response.json();
     });
   }
 }
