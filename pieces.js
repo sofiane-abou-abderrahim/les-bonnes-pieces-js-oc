@@ -55,7 +55,7 @@ function generatePieces(pieces) {
     pieceElement.appendChild(categoryElement);
     pieceElement.appendChild(descriptionElement);
     pieceElement.appendChild(stockElement);
-    // code added
+    // added code
     pieceElement.appendChild(reviewsButton);
   }
   // Call reviewsAddListener function
