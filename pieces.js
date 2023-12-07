@@ -1,14 +1,18 @@
 import { reviewsAddListener, sendReviewsAddListener } from './avis.js';
 
-// Retrieve pieces from HTTP API
-const response = await fetch('http://localhost:8081/pieces');
-const pieces = await response.json();
-
-// Convert pieces to JSON
-const piecesValue = JSON.stringify(pieces);
-
-// Store the information in localStorage
-window.localStorage.setItem('pieces', piecesValue);
+// Retrieve pieces potentially stored in localStorage
+let pieces = window.localStorage.getItem('pieces');
+if (pieces === null) {
+  // Retrieve pieces from the API
+  const reponse = await fetch('http://localhost:8081/pieces/');
+  pieces = await reponse.json();
+  // Convert pieces to JSON
+  const valeurPieces = JSON.stringify(pieces);
+  // Store the information in localStorage
+  window.localStorage.setItem('pieces', valeurPieces);
+} else {
+  pieces = JSON.parse(pieces);
+}
 
 // Call the function to add the listener to the form
 sendReviewsAddListener();
