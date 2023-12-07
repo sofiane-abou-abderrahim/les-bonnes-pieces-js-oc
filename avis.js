@@ -26,3 +26,10 @@ export function sendReviewsAddListener() {
     event.preventDefault();
   });
 }
+
+// Create the object for the new reviews
+const reviews = {
+  pieceId: parseInt(event.target.querySelector('[name=piece-id]').value),
+  user: event.target.querySelector('[name=user').value,
+  comment: event.target.querySelector('[name=comment]').value
+};
