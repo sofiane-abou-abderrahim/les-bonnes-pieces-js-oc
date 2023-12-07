@@ -170,3 +170,9 @@ document
 
 // retrieve input tag reference
 const maxPriceInput = document.querySelector('#max-price');
+
+maxPriceInput.addEventListener('input', function () {
+  const filteredPieces = pieces.filter(function (piece) {
+    return piece.price <= maxPriceInput.value;
+  });
+});
