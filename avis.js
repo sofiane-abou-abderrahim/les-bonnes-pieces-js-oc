@@ -23,6 +23,7 @@ export function displayReviews(pieceElement, reviews) {
   const reviewsElement = document.createElement('p');
   for (let i = 0; i < reviews.length; i++) {
     reviewsElement.innerHTML += `${reviews[i].user}: ${reviews[i].comment} <br>`;
+    reviewsElement.innerHTML += `${reviews[i].starsNb} <br>`;
   }
   pieceElement.appendChild(reviewsElement);
 }
